@@ -1,0 +1,19 @@
+TODO: Example reader where you don't know what type of data you are getting.
+     Such as from an API.
+     https://github.com/apache/arrow/blob/master/java/vector/src/test/java/org/apache/arrow/vector/ipc/TestArrowStream.java
+     use listVector.getDataVector().getField().getType()
+     Or instance of ListVector/IntVector
+     For adding vector to root and then passing it somwhere else
+       List<Field> fields = Arrays.asList(listVector.getField());
+       List<FieldVector> vectors = Arrays.asList(listVector);
+       VectorSchemaRoot root = new VectorSchemaRoot(fields, vectors, listVector.getValueCount());
+TODO: test an inner loop
+writer.list().startList();
+for loop ....
+writer.list().integer().writeInt(j * i);
+writer.list().endList(
+
+Docs:
+https://arrow.apache.org/docs/java/
+https://github.com/animeshtrivedi/blog/blob/master/post/2017-12-26-arrow.md
+https://github.com/apache/arrow/blob/master/java/vector/src/test/java/org/apache/arrow/vector/TestListVector.java
